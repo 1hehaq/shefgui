@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <object class="GtkDialog" id="find_dialog">
+    <property name="title">Find in Results</property>
+    <property name="modal">true</property>
+    <property name="default-width">400</property>
+    <property name="default-height">120</property>
+    <child internal-child="content_area">
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="spacing">12</property>
+        <property name="margin-top">12</property>
+        <property name="margin-bottom">12</property>
+        <property name="margin-start">12</property>
+        <property name="margin-end">12</property>
+        
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">horizontal</property>
+            <property name="spacing">8</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label">Find:</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkEntry" id="find_entry">
+                <property name="hexpand">true</property>
+                <property name="placeholder-text">Search in results...</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">horizontal</property>
+            <property name="spacing">8</property>
+            <child>
+              <object class="GtkCheckButton" id="case_sensitive_check">
+                <property name="label">Case sensitive</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="match_count_label">
+                <property name="label"></property>
+                <property name="halign">end</property>
+                <property name="hexpand">true</property>
+                <style>
+                  <class name="dim-label"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+        
+      </object>
+    </child>
+    <child internal-child="action_area">
+      <object class="GtkBox">
+        <child>
+          <object class="GtkButton" id="find_prev_button">
+            <property name="label">Previous</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="find_next_button">
+            <property name="label">Next</property>
+            <style>
+              <class name="suggested-action"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="find_close_button">
+            <property name="label">Close</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

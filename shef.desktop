@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=shef
+Comment=bring shodan facets into your terminal without API key.
+Exec=/usr/bin/shefgui
+Icon=/usr/share/icons/hicolor/128x128/apps/shef.png
+Terminal=false
+StartupNotify=true
+Categories=Network;Security;Development;
+Keywords=shodan;search;security;network;gui;facet;
+GenericName=shef
+StartupWMClass=shef

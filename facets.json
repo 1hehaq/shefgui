@@ -1,0 +1,332 @@
+{
+  "facets": [
+    {
+      "name": "asn",
+      "description": "Find devices by Autonomous System Number for network routing (e.g., \"AS15169\" for Google)"
+    },
+    {
+      "name": "bitcoin.ip",
+      "description": "Search for Bitcoin nodes by IP address"
+    },
+    {
+      "name": "bitcoin.ip_count",
+      "description": "Filter by the number of Bitcoin IP addresses"
+    },
+    {
+      "name": "bitcoin.port",
+      "description": "Find Bitcoin nodes running on specific ports"
+    },
+    {
+      "name": "bitcoin.user_agent",
+      "description": "Search Bitcoin nodes by their user agent string"
+    },
+    {
+      "name": "bitcoin.version",
+      "description": "Find Bitcoin nodes running specific protocol versions"
+    },
+    {
+      "name": "city",
+      "description": "Find devices in specific cities (e.g., \"New York\", \"London\", \"Tokyo\")"
+    },
+    {
+      "name": "cloud.provider",
+      "description": "Search for devices hosted on specific cloud providers (e.g., \"AWS\", \"Azure\", \"GCP\")"
+    },
+    {
+      "name": "cloud.region",
+      "description": "Find devices in specific cloud regions (e.g., \"us-east-1\", \"eu-west-1\")"
+    },
+    {
+      "name": "cloud.service",
+      "description": "Search for specific cloud services (e.g., \"EC2\", \"Compute Engine\")"
+    },
+    {
+      "name": "country",
+      "description": "Search for devices located in specific countries using country codes (e.g., US, CN, DE, RU)"
+    },
+    {
+      "name": "cpe",
+      "description": "Find devices by Common Platform Enumeration identifiers"
+    },
+    {
+      "name": "device",
+      "description": "Search for specific device types (e.g., \"router\", \"webcam\", \"printer\")"
+    },
+    {
+      "name": "domain",
+      "description": "Find devices associated with specific domains"
+    },
+    {
+      "name": "has_screenshot",
+      "description": "Filter results that have screenshots available (true/false)"
+    },
+    {
+      "name": "hash",
+      "description": "Search by various hash values (favicon, certificate, etc.)"
+    },
+    {
+      "name": "http.component",
+      "description": "Find web applications using specific components (e.g., \"jQuery\", \"Bootstrap\")"
+    },
+    {
+      "name": "http.component_category",
+      "description": "Search by web component categories (e.g., \"JavaScript Library\", \"Web Framework\")"
+    },
+    {
+      "name": "http.dom_hash",
+      "description": "Find websites with specific DOM structure hashes"
+    },
+    {
+      "name": "http.favicon.hash",
+      "description": "Search websites by their favicon hash values"
+    },
+    {
+      "name": "http.headers_hash",
+      "description": "Find websites with specific HTTP headers hash"
+    },
+    {
+      "name": "http.html_hash",
+      "description": "Search by HTML content hash values"
+    },
+    {
+      "name": "http.robots_hash",
+      "description": "Find websites by their robots.txt file hash"
+    },
+    {
+      "name": "http.server_hash",
+      "description": "Search by HTTP server response hash"
+    },
+    {
+      "name": "http.status",
+      "description": "Filter by HTTP status codes (e.g., 200, 404, 500)"
+    },
+    {
+      "name": "http.title",
+      "description": "Search by HTTP title tags from web pages (e.g., \"Welcome\", \"Login\")"
+    },
+    {
+      "name": "http.title_hash",
+      "description": "Find websites by their title hash values"
+    },
+    {
+      "name": "http.waf",
+      "description": "Search for websites protected by Web Application Firewalls"
+    },
+    {
+      "name": "ip",
+      "description": "Search for specific IP addresses or IP ranges"
+    },
+    {
+      "name": "isp",
+      "description": "Find devices by Internet Service Provider (e.g., \"Comcast\", \"Verizon\")"
+    },
+    {
+      "name": "link",
+      "description": "Search for devices with specific links or references"
+    },
+    {
+      "name": "mongodb.database.name",
+      "description": "Find MongoDB instances with specific database names"
+    },
+    {
+      "name": "ntp.ip",
+      "description": "Search NTP servers by IP address"
+    },
+    {
+      "name": "ntp.ip_count",
+      "description": "Filter by the number of NTP IP addresses"
+    },
+    {
+      "name": "ntp.more",
+      "description": "Find NTP servers with additional information available"
+    },
+    {
+      "name": "ntp.port",
+      "description": "Search NTP servers running on specific ports"
+    },
+    {
+      "name": "org",
+      "description": "Search by organization name or ISP (e.g., \"Google\", \"Amazon\")"
+    },
+    {
+      "name": "os",
+      "description": "Find devices running specific operating systems (e.g., \"Windows\", \"Linux\")"
+    },
+    {
+      "name": "port",
+      "description": "Find devices with specific open ports (e.g., 22, 80, 443)"
+    },
+    {
+      "name": "postal",
+      "description": "Search by postal/ZIP codes for geographic targeting"
+    },
+    {
+      "name": "product",
+      "description": "Search for specific software products or services (e.g., Apache, nginx)"
+    },
+    {
+      "name": "redis.key",
+      "description": "Find Redis instances with specific key patterns"
+    },
+    {
+      "name": "region",
+      "description": "Search by geographic regions or states"
+    },
+    {
+      "name": "rsync.module",
+      "description": "Find Rsync servers with specific module names"
+    },
+    {
+      "name": "screenshot.hash",
+      "description": "Search by screenshot hash values"
+    },
+    {
+      "name": "screenshot.label",
+      "description": "Find devices with specific screenshot labels or tags"
+    },
+    {
+      "name": "snmp.contact",
+      "description": "Search SNMP devices by contact information"
+    },
+    {
+      "name": "snmp.location",
+      "description": "Find SNMP devices by their configured location"
+    },
+    {
+      "name": "snmp.name",
+      "description": "Search SNMP devices by system name"
+    },
+    {
+      "name": "ssh.cipher",
+      "description": "Find SSH servers using specific cipher algorithms"
+    },
+    {
+      "name": "ssh.fingerprint",
+      "description": "Search SSH servers by their key fingerprints"
+    },
+    {
+      "name": "ssh.hassh",
+      "description": "Find SSH clients/servers by HASSH fingerprints"
+    },
+    {
+      "name": "ssh.mac",
+      "description": "Search SSH servers by MAC algorithm support"
+    },
+    {
+      "name": "ssh.type",
+      "description": "Find SSH servers by key type (e.g., RSA, ECDSA)"
+    },
+    {
+      "name": "ssl.alpn",
+      "description": "Search SSL/TLS servers by ALPN protocol support"
+    },
+    {
+      "name": "ssl.cert.alg",
+      "description": "Find SSL certificates using specific algorithms"
+    },
+    {
+      "name": "ssl.cert.expired",
+      "description": "Filter by SSL certificate expiration status (true/false)"
+    },
+    {
+      "name": "ssl.cert.extension",
+      "description": "Search SSL certificates by extension types"
+    },
+    {
+      "name": "ssl.cert.fingerprint",
+      "description": "Find SSL certificates by their fingerprints"
+    },
+    {
+      "name": "ssl.cert.issuer.cn",
+      "description": "Search SSL certificates by issuer common name"
+    },
+    {
+      "name": "ssl.cert.pubkey.bits",
+      "description": "Filter SSL certificates by public key bit length"
+    },
+    {
+      "name": "ssl.cert.pubkey.type",
+      "description": "Find SSL certificates by public key type (RSA, ECDSA)"
+    },
+    {
+      "name": "ssl.cert.serial",
+      "description": "Search SSL certificates by serial number"
+    },
+    {
+      "name": "ssl.cert.subject.cn",
+      "description": "Find SSL certificates by subject common name"
+    },
+    {
+      "name": "ssl.chain_count",
+      "description": "Filter by SSL certificate chain length"
+    },
+    {
+      "name": "ssl.cipher.bits",
+      "description": "Search SSL connections by cipher bit strength"
+    },
+    {
+      "name": "ssl.cipher.name",
+      "description": "Find SSL connections using specific cipher names"
+    },
+    {
+      "name": "ssl.cipher.version",
+      "description": "Search SSL connections by cipher version"
+    },
+    {
+      "name": "ssl.ja3s",
+      "description": "Find SSL servers by JA3S fingerprints"
+    },
+    {
+      "name": "ssl.jarm",
+      "description": "Search SSL servers by JARM fingerprints"
+    },
+    {
+      "name": "ssl.version",
+      "description": "Find SSL/TLS servers by protocol version (e.g., TLSv1.2)"
+    },
+    {
+      "name": "state",
+      "description": "Search by state or province names"
+    },
+    {
+      "name": "tag",
+      "description": "Find devices with specific Shodan tags"
+    },
+    {
+      "name": "telnet.do",
+      "description": "Search Telnet servers by DO option negotiations"
+    },
+    {
+      "name": "telnet.dont",
+      "description": "Find Telnet servers by DONT option negotiations"
+    },
+    {
+      "name": "telnet.option",
+      "description": "Search Telnet servers by supported options"
+    },
+    {
+      "name": "telnet.will",
+      "description": "Find Telnet servers by WILL option negotiations"
+    },
+    {
+      "name": "telnet.wont",
+      "description": "Search Telnet servers by WONT option negotiations"
+    },
+    {
+      "name": "uptime",
+      "description": "Filter devices by their reported uptime"
+    },
+    {
+      "name": "version",
+      "description": "Search by software or protocol version numbers"
+    },
+    {
+      "name": "vuln",
+      "description": "Find devices with specific vulnerabilities (CVE IDs)"
+    },
+    {
+      "name": "vuln.verified",
+      "description": "Filter by verified vulnerability status (true/false)"
+    }
+  ]
+}
