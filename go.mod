@@ -1,4 +1,4 @@
-module shef
+module shefgui
 
 go 1.25.1
 

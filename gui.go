@@ -45,7 +45,7 @@ func (a *App) Run() int {
 }
 
 func (a *App) activate() {
-	a.builder = gtk.NewBuilderFromFile("window.ui")
+	a.builder = gtk.NewBuilderFromString(windowUI)
 
 	a.window = a.builder.GetObject("window").Cast().(*gtk.ApplicationWindow)
 	a.window.SetApplication(a.app)
@@ -184,7 +184,7 @@ func (a *App) copyResults() {
 	}
 
 	clipboard := a.window.Clipboard()
-	text := strings.Join(a.lastResults, "\n")
+	text := strings.Join(a.originalResults, "\n")
 	clipboard.SetText(text)
 }
 
@@ -210,7 +210,7 @@ func (a *App) downloadResults() {
 		}
 		if file != nil {
 			path := file.Path()
-			text := strings.Join(a.lastResults, "\n")
+			text := strings.Join(a.originalResults, "\n")
 			writeErr := os.WriteFile(path, []byte(text), 0644)
 			if writeErr != nil {
 				fmt.Printf("Error saving file: %v\n", writeErr)
@@ -281,12 +281,12 @@ func (a *App) showPreferences() {
 	facetLabel := gtk.NewLabel("Default Search Facet")
 	facetLabel.SetHAlign(gtk.AlignStart)
 	facetLabel.AddCSSClass("body")
-	
+
 	facetDescription := gtk.NewLabel("Choose the default facet for new searches")
 	facetDescription.SetHAlign(gtk.AlignStart)
 	facetDescription.AddCSSClass("caption")
 	facetDescription.AddCSSClass("dim-label")
-	
+
 	facetLabelBox.Append(facetLabel)
 	facetLabelBox.Append(facetDescription)
 
@@ -294,12 +294,12 @@ func (a *App) showPreferences() {
 	facetCombo.SetHAlign(gtk.AlignEnd)
 	facetCombo.SetVAlign(gtk.AlignCenter)
 	facetCombo.SetSizeRequest(180, -1)
-	
+
 	facets := getFacets()
 	for _, facet := range facets {
 		facetCombo.AppendText(facet)
 	}
-	
+
 	for i, facet := range facets {
 		if facet == a.preferences.DefaultFacet {
 			facetCombo.SetActive(i)
@@ -361,7 +361,7 @@ func (a *App) savePreferences() {
 }
 
 func (a *App) showAbout() {
-	builder := gtk.NewBuilderFromFile("about.ui")
+	builder := gtk.NewBuilderFromString(aboutUI)
 	aboutDialog := builder.GetObject("about_dialog").Cast().(*gtk.AboutDialog)
 	aboutDialog.SetTransientFor(&a.window.Window)
 	aboutDialog.Show()
@@ -461,7 +461,7 @@ func (a *App) showFind() {
 }
 
 func (a *App) showHelp() {
-	builder := gtk.NewBuilderFromFile("help.ui")
+	builder := gtk.NewBuilderFromString(helpUI)
 	dialog := builder.GetObject("help_dialog").Cast().(*gtk.Dialog)
 	dialog.SetTransientFor(&a.window.Window)
 
@@ -538,9 +538,9 @@ func (a *App) showSimpleSearch() {
 
 	searchEntry.ConnectSearchChanged(func() {
 		query := strings.TrimSpace(strings.ToLower(searchEntry.Text()))
-		
+
 		resultsList.RemoveAll()
-		
+
 		for _, result := range a.originalResults {
 			if query == "" || strings.Contains(strings.ToLower(result), query) {
 				row := gtk.NewListBoxRow()
@@ -578,14 +578,8 @@ type FacetsJSON struct {
 }
 
 func (a *App) loadFacetsFromJSON(flowBox *gtk.FlowBox) []FacetData {
-	data, err := os.ReadFile("facets.json")
-	if err != nil {
-		fmt.Printf("Error reading facets.json: %v\n", err)
-		return nil
-	}
-
 	var facetsData FacetsJSON
-	err = json.Unmarshal(data, &facetsData)
+	err := json.Unmarshal([]byte(facetsJSON), &facetsData)
 	if err != nil {
 		fmt.Printf("Error parsing facets.json: %v\n", err)
 		return nil
@@ -624,24 +618,24 @@ func (a *App) loadFacetsFromJSON(flowBox *gtk.FlowBox) []FacetData {
 
 func (a *App) filterResults(query string) {
 	a.clearResults()
-	
+
 	query = strings.TrimSpace(strings.ToLower(query))
-	
+
 	if query == "" {
 		a.restoreOriginalResults()
 		return
 	}
-	
+
 	var filteredResults []string
 	for _, result := range a.originalResults {
 		if strings.Contains(strings.ToLower(result), query) {
 			filteredResults = append(filteredResults, result)
 		}
 	}
-	
+
 	a.lastResults = filteredResults
 	a.resultsCount.SetText(fmt.Sprintf("%d", len(filteredResults)))
-	
+
 	for _, result := range filteredResults {
 		row := gtk.NewListBoxRow()
 		label := gtk.NewLabel(result)
@@ -661,13 +655,13 @@ func (a *App) restoreOriginalResults() {
 	if a.originalResults == nil {
 		return
 	}
-	
+
 	a.lastResults = make([]string, len(a.originalResults))
 	copy(a.lastResults, a.originalResults)
-	
+
 	a.clearResults()
 	a.resultsCount.SetText(fmt.Sprintf("%d", len(a.lastResults)))
-	
+
 	for _, result := range a.lastResults {
 		row := gtk.NewListBoxRow()
 		label := gtk.NewLabel(result)
@@ -681,7 +675,7 @@ func (a *App) restoreOriginalResults() {
 		row.SetChild(label)
 		a.resultsList.Append(row)
 	}
-	
+
 	a.originalResults = nil
 }
 
